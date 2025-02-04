@@ -1,0 +1,5 @@
+module.exports = {
+  "models-path": "src/models",
+  "migrations-path": "src/migrations",
+  "seeders-path": "src/seeders",
+};
