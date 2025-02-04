@@ -21,6 +21,7 @@ router.post(
   "/register",
   [
     body("username").isString().withMessage("Username is required"),
+    body("email").isEmail().withMessage("Valid email is required"),
     body("password")
       .isString()
       .isLength({ min: 6 })

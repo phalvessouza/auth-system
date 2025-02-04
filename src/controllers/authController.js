@@ -44,35 +44,41 @@ const login = async (req, res) => {
 
     res.status(200).json({ auth: true, token, refreshToken });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "There was a problem logging in the user.",
-        error: error.message,
-      });
+    res.status(500).json({
+      message: "There was a problem logging in the user.",
+      error: error.message,
+    });
   }
 };
 
 const register = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { username, email, password } = req.body;
     const userExists = await User.findOne({ where: { username } });
 
     if (userExists) {
       return res.status(400).json({ message: "User already exists" });
     }
 
+    const emailExists = await User.findOne({ where: { email } });
+
+    if (emailExists) {
+      return res.status(400).json({ message: "Email already exists" });
+    }
+
     const hashedPassword = await authService.hashPassword(password);
-    const newUser = await User.create({ username, password: hashedPassword });
+    const newUser = await User.create({
+      username,
+      email,
+      password: hashedPassword,
+    });
 
     res.status(201).json({ message: "User registered successfully" });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "There was a problem registering the user.",
-        error: error.message,
-      });
+    res.status(500).json({
+      message: "There was a problem registering the user.",
+      error: error.message,
+    });
   }
 };
 
@@ -126,12 +132,10 @@ const refreshToken = async (req, res) => {
       res.status(200).json({ auth: true, token: newToken });
     });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "There was a problem refreshing the token.",
-        error: error.message,
-      });
+    res.status(500).json({
+      message: "There was a problem refreshing the token.",
+      error: error.message,
+    });
   }
 };
 
@@ -143,12 +147,10 @@ const logout = async (req, res) => {
       const decoded = jwt.verify(refreshToken, process.env.JWT_SECRET);
       await RefreshToken.destroy({ where: { userId: decoded.id } });
     } catch (error) {
-      return res
-        .status(500)
-        .json({
-          message: "There was a problem logging out.",
-          error: error.message,
-        });
+      return res.status(500).json({
+        message: "There was a problem logging out.",
+        error: error.message,
+      });
     }
   }
 
