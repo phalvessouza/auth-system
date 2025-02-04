@@ -1,34 +1,26 @@
 const express = require("express");
-const { body, validationResult } = require("express-validator");
+const { body } = require("express-validator");
 const authController = require("../controllers/authController");
-const verifyToken = require("../middlewares/verifyToken");
+const validate = require("../middlewares/validate");
 
 const router = express.Router();
 
-// Middleware para lidar com erros de validação
-const validate = (req, res, next) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
-  next();
-};
-
-// Rotas de autenticação
+// Rota para login
 router.post(
   "/login",
   [
-    body("username").isString().notEmpty().withMessage("Username is required"),
-    body("password").isString().notEmpty().withMessage("Password is required"),
+    body("username").isString().withMessage("Username is required"),
+    body("password").isString().withMessage("Password is required"),
   ],
   validate,
   authController.login
 );
 
+// Rota para registro
 router.post(
   "/register",
   [
-    body("username").isString().notEmpty().withMessage("Username is required"),
+    body("username").isString().withMessage("Username is required"),
     body("password")
       .isString()
       .isLength({ min: 6 })
@@ -38,12 +30,28 @@ router.post(
   authController.register
 );
 
-router.post("/refresh-token", authController.refreshToken);
+// Rota para logout
 router.post("/logout", authController.logout);
 
-// Exemplo de rota protegida
-router.get("/protected", verifyToken, (req, res) => {
-  res.status(200).send("This is a protected route");
-});
+// Rota para solicitação de redefinição de senha
+router.post(
+  "/forgot-password",
+  [body("email").isEmail().withMessage("Valid email is required")],
+  validate,
+  authController.forgotPassword
+);
+
+// Rota para redefinição de senha
+router.post(
+  "/reset-password/:token",
+  [
+    body("password")
+      .isString()
+      .isLength({ min: 6 })
+      .withMessage("Password must be at least 6 characters long"),
+  ],
+  validate,
+  authController.resetPassword
+);
 
 module.exports = router;

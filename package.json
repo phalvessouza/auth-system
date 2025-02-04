@@ -9,6 +9,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "argon2": "^0.41.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.7",
@@ -19,8 +20,10 @@
     "express-validator": "^7.2.1",
     "helmet": "^8.0.0",
     "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.10.0",
     "pg": "^8.13.1",
-    "sequelize": "^6.28.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.5",
     "winston": "^3.17.0"
   },
   "devDependencies": {
