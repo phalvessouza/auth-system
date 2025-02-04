@@ -1,6 +1,7 @@
 const express = require("express");
 const { body, validationResult } = require("express-validator");
 const authController = require("../controllers/authController");
+const verifyToken = require("../middlewares/verifyToken");
 
 const router = express.Router();
 
@@ -39,5 +40,10 @@ router.post(
 
 router.post("/refresh-token", authController.refreshToken);
 router.post("/logout", authController.logout);
+
+// Exemplo de rota protegida
+router.get("/protected", verifyToken, (req, res) => {
+  res.status(200).send("This is a protected route");
+});
 
 module.exports = router;

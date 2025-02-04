@@ -1,59 +1,71 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const dotenv = require("dotenv");
-const User = require("../models/User");
+const User = require("../models/user");
+const RefreshToken = require("../models/refreshToken");
 
 dotenv.config();
 
 // função para autenticar o usuário
 const login = async (req, res) => {
-  const { username, password } = req.body;
-  const user = await User.findOne({ where: { username } });
+  try {
+    const { username, password } = req.body;
+    const user = await User.findOne({ where: { username } });
 
-  if (!user) {
-    return res.status(404).send("User not found");
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+
+    const passwordIsValid = bcrypt.compareSync(password, user.password);
+
+    if (!passwordIsValid) {
+      return res.status(401).send("Invalid password");
+    }
+
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+      expiresIn: 86400, // 24 hours
+    });
+
+    const refreshToken = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+      expiresIn: 604800, // 7 days
+    });
+
+    // Salvar o refresh token no banco de dados
+    await RefreshToken.create({ token: refreshToken, userId: user.id });
+
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+    });
+
+    res.cookie("refreshToken", refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+    });
+
+    res.status(200).send({ auth: true, token, refreshToken });
+  } catch (error) {
+    res.status(500).send("There was a problem logging in the user.");
   }
-
-  const passwordIsValid = bcrypt.compareSync(password, user.password);
-
-  if (!passwordIsValid) {
-    return res.status(401).send("Invalid password");
-  }
-
-  const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-    expiresIn: 86400, // 24 hours
-  });
-
-  const refreshToken = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-    expiresIn: 604800, // 7 days
-  });
-
-  res.cookie("token", token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-  });
-
-  res.cookie("refreshToken", refreshToken, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-  });
-
-  res.status(200).send({ auth: true, token, refreshToken });
 };
 
 // função para registrar um novo usuário
 const register = async (req, res) => {
-  const { username, password } = req.body;
-  const userExists = await User.findOne({ where: { username } });
+  try {
+    const { username, password } = req.body;
+    const userExists = await User.findOne({ where: { username } });
 
-  if (userExists) {
-    return res.status(400).send("User already exists");
+    if (userExists) {
+      return res.status(400).send("User already exists");
+    }
+
+    const hashedPassword = bcrypt.hashSync(password, 12);
+    const newUser = await User.create({ username, password: hashedPassword });
+
+    res.status(201).send("User registered successfully");
+  } catch (error) {
+    res.status(500).send("There was a problem registering the user.");
   }
-
-  const hashedPassword = bcrypt.hashSync(password, 12);
-  const newUser = await User.create({ username, password: hashedPassword });
-
-  res.status(201).send("User registered successfully");
 };
 
 const verifyToken = (req, res, next) => {

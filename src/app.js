@@ -6,7 +6,7 @@ const cookieParser = require("cookie-parser");
 const rateLimit = require("express-rate-limit");
 const routes = require("./routes");
 const sequelize = require("./config/database");
-const User = require("./models/User");
+const User = require("./models/user");
 const winston = require("winston");
 
 dotenv.config();
@@ -26,10 +26,20 @@ const logger = winston.createLogger({
 });
 
 // Middlewares
-app.use(cors());
+const corsOptions = {
+  origin: "http://localhost:3000", // Substitua pelo seu domínio
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 app.use(helmet());
 app.use(express.json());
 app.use(cookieParser());
+
+app.use((req, res, next) => {
+  logger.info(`${req.method} ${req.url}`);
+  next();
+});
 
 // Middleware para limitar a taxa de requisições
 const limiter = rateLimit({
@@ -46,7 +56,7 @@ app.use("/api", routes);
 // Middleware para tratamento de erro
 app.use((err, req, res, next) => {
   logger.error(err.stack);
-  res.status(500).send("Something broke!");
+  res.status(500).json({ message: "Something broke!", error: err.message });
 });
 
 // Sincronizar o modelo com o banco de dados
