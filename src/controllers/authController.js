@@ -85,32 +85,55 @@ const verifyToken = (req, res, next) => {
   });
 };
 
-const refreshToken = (req, res) => {
+const refreshToken = async (req, res) => {
   const refreshToken = req.cookies.refreshToken;
 
   if (!refreshToken) {
     return res.status(403).send("No refresh token provided");
   }
 
-  jwt.verify(refreshToken, process.env.JWT_SECRET, (err, decoded) => {
-    if (err) {
-      return res.status(500).send("Failed to authenticate refresh token");
+  try {
+    const storedToken = await RefreshToken.findOne({
+      where: { token: refreshToken },
+    });
+
+    if (!storedToken) {
+      return res.status(403).send("Invalid refresh token");
     }
 
-    const newToken = jwt.sign({ id: decoded.id }, process.env.JWT_SECRET, {
-      expiresIn: 86400, // 24 hours
-    });
+    jwt.verify(refreshToken, process.env.JWT_SECRET, async (err, decoded) => {
+      if (err) {
+        return res.status(500).send("Failed to authenticate refresh token");
+      }
 
-    res.cookie("token", newToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-    });
+      const newToken = jwt.sign({ id: decoded.id }, process.env.JWT_SECRET, {
+        expiresIn: 86400, // 24 hours
+      });
 
-    res.status(200).send({ auth: true, token: newToken });
-  });
+      res.cookie("token", newToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+      });
+
+      res.status(200).send({ auth: true, token: newToken });
+    });
+  } catch (error) {
+    res.status(500).send("There was a problem refreshing the token.");
+  }
 };
 
-const logout = (req, res) => {
+const logout = async (req, res) => {
+  const refreshToken = req.cookies.refreshToken;
+
+  if (refreshToken) {
+    try {
+      const decoded = jwt.verify(refreshToken, process.env.JWT_SECRET);
+      await RefreshToken.destroy({ where: { userId: decoded.id } });
+    } catch (error) {
+      return res.status(500).send("There was a problem logging out.");
+    }
+  }
+
   res.clearCookie("token");
   res.clearCookie("refreshToken");
   res.status(200).send({ auth: false, message: "Logged out successfully" });
