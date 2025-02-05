@@ -1,36 +1,17 @@
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
 const dotenv = require("dotenv");
-const { Op } = require("sequelize");
-const crypto = require("crypto");
-const User = require("../models/user");
-const RefreshToken = require("../models/refreshToken");
 const authService = require("../services/authService");
+const { Op } = require("sequelize");
 
 dotenv.config();
 
 const login = async (req, res) => {
   try {
     const { username, password } = req.body;
-    const user = await User.findOne({ where: { username } });
-
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
-
-    const passwordIsValid = await authService.verifyPassword(
-      user.password,
+    const { token, refreshToken } = await authService.loginUser(
+      username,
       password
     );
-
-    if (!passwordIsValid) {
-      return res.status(401).json({ message: "Invalid password" });
-    }
-
-    const token = authService.generateToken(user.id);
-    const refreshToken = authService.generateRefreshToken(user.id);
-
-    await RefreshToken.create({ token: refreshToken, userId: user.id });
 
     res.cookie("token", token, {
       httpOnly: true,
@@ -54,25 +35,7 @@ const login = async (req, res) => {
 const register = async (req, res) => {
   try {
     const { username, email, password } = req.body;
-    const userExists = await User.findOne({ where: { username } });
-
-    if (userExists) {
-      return res.status(400).json({ message: "User already exists" });
-    }
-
-    const emailExists = await User.findOne({ where: { email } });
-
-    if (emailExists) {
-      return res.status(400).json({ message: "Email already exists" });
-    }
-
-    const hashedPassword = await authService.hashPassword(password);
-    const newUser = await User.create({
-      username,
-      email,
-      password: hashedPassword,
-    });
-
+    await authService.registerUser(username, email, password);
     res.status(201).json({ message: "User registered successfully" });
   } catch (error) {
     res.status(500).json({
@@ -107,30 +70,14 @@ const refreshToken = async (req, res) => {
   }
 
   try {
-    const storedToken = await RefreshToken.findOne({
-      where: { token: refreshToken },
+    const newToken = await authService.refreshUserToken(refreshToken);
+
+    res.cookie("token", newToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
     });
 
-    if (!storedToken) {
-      return res.status(403).json({ message: "Invalid refresh token" });
-    }
-
-    jwt.verify(refreshToken, process.env.JWT_SECRET, async (err, decoded) => {
-      if (err) {
-        return res
-          .status(500)
-          .json({ message: "Failed to authenticate refresh token" });
-      }
-
-      const newToken = authService.generateToken(decoded.id);
-
-      res.cookie("token", newToken, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-      });
-
-      res.status(200).json({ auth: true, token: newToken });
-    });
+    res.status(200).json({ auth: true, token: newToken });
   } catch (error) {
     res.status(500).json({
       message: "There was a problem refreshing the token.",
@@ -144,8 +91,7 @@ const logout = async (req, res) => {
 
   if (refreshToken) {
     try {
-      const decoded = jwt.verify(refreshToken, process.env.JWT_SECRET);
-      await RefreshToken.destroy({ where: { userId: decoded.id } });
+      await authService.logoutUser(refreshToken);
     } catch (error) {
       return res.status(500).json({
         message: "There was a problem logging out.",
@@ -162,19 +108,7 @@ const logout = async (req, res) => {
 const forgotPassword = async (req, res) => {
   try {
     const { email } = req.body;
-    const user = await User.findOne({ where: { email } });
-
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
-
-    const token = crypto.randomBytes(20).toString("hex");
-    const resetPasswordExpires = Date.now() + 3600000; // 1 hour
-
-    await user.update({ resetPasswordToken: token, resetPasswordExpires });
-
-    await authService.sendResetPasswordEmail(user, token, req);
-
+    await authService.forgotPassword(email, req);
     res.status(200).json({ message: "Password reset email sent" });
   } catch (error) {
     res
@@ -187,27 +121,7 @@ const resetPassword = async (req, res) => {
   try {
     const { token } = req.params;
     const { password } = req.body;
-
-    const user = await User.findOne({
-      where: {
-        resetPasswordToken: token,
-        resetPasswordExpires: { [Op.gt]: Date.now() },
-      },
-    });
-
-    if (!user) {
-      return res
-        .status(400)
-        .json({ message: "Password reset token is invalid or has expired" });
-    }
-
-    const hashedPassword = await authService.hashPassword(password);
-    await user.update({
-      password: hashedPassword,
-      resetPasswordToken: null,
-      resetPasswordExpires: null,
-    });
-
+    await authService.resetPassword(token, password);
     res.status(200).json({ message: "Password has been reset" });
   } catch (error) {
     res.status(500).json({

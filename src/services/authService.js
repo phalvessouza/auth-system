@@ -50,10 +50,115 @@ const sendResetPasswordEmail = async (user, token, req) => {
   await transporter.sendMail(mailOptions);
 };
 
+const loginUser = async (username, password) => {
+  const user = await User.findOne({ where: { username } });
+
+  if (!user) {
+    throw new Error("User not found");
+  }
+
+  const passwordIsValid = await verifyPassword(user.password, password);
+
+  if (!passwordIsValid) {
+    throw new Error("Invalid password");
+  }
+
+  const token = generateToken(user.id);
+  const refreshToken = generateRefreshToken(user.id);
+
+  await RefreshToken.create({ token: refreshToken, userId: user.id });
+
+  return { token, refreshToken };
+};
+
+const registerUser = async (username, email, password) => {
+  const userExists = await User.findOne({ where: { username } });
+
+  if (userExists) {
+    throw new Error("User already exists");
+  }
+
+  const emailExists = await User.findOne({ where: { email } });
+
+  if (emailExists) {
+    throw new Error("Email already exists");
+  }
+
+  const hashedPassword = await hashPassword(password);
+  const newUser = await User.create({
+    username,
+    email,
+    password: hashedPassword,
+  });
+
+  return newUser;
+};
+
+const refreshUserToken = async (refreshToken) => {
+  const storedToken = await RefreshToken.findOne({
+    where: { token: refreshToken },
+  });
+
+  if (!storedToken) {
+    throw new Error("Invalid refresh token");
+  }
+
+  const decoded = jwt.verify(refreshToken, process.env.JWT_SECRET);
+  const newToken = generateToken(decoded.id);
+
+  return newToken;
+};
+
+const logoutUser = async (refreshToken) => {
+  const decoded = jwt.verify(refreshToken, process.env.JWT_SECRET);
+  await RefreshToken.destroy({ where: { userId: decoded.id } });
+};
+
+const forgotPassword = async (email, req) => {
+  const user = await User.findOne({ where: { email } });
+
+  if (!user) {
+    throw new Error("User not found");
+  }
+
+  const token = crypto.randomBytes(20).toString("hex");
+  const resetPasswordExpires = Date.now() + 3600000; // 1 hour
+
+  await user.update({ resetPasswordToken: token, resetPasswordExpires });
+
+  await sendResetPasswordEmail(user, token, req);
+};
+
+const resetPassword = async (token, password) => {
+  const user = await User.findOne({
+    where: {
+      resetPasswordToken: token,
+      resetPasswordExpires: { [Op.gt]: Date.now() },
+    },
+  });
+
+  if (!user) {
+    throw new Error("Password reset token is invalid or has expired");
+  }
+
+  const hashedPassword = await hashPassword(password);
+  await user.update({
+    password: hashedPassword,
+    resetPasswordToken: null,
+    resetPasswordExpires: null,
+  });
+};
+
 module.exports = {
   generateToken,
   generateRefreshToken,
   hashPassword,
   verifyPassword,
   sendResetPasswordEmail,
+  loginUser,
+  registerUser,
+  refreshUserToken,
+  logoutUser,
+  forgotPassword,
+  resetPassword,
 };
