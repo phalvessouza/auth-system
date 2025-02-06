@@ -2,46 +2,39 @@ const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 const authService = require("../services/authService");
 const { Op } = require("sequelize");
+const User = require("../models/user");
+const { hashPassword, comparePassword } = require("../utils/password");
 
 dotenv.config();
 
+const generateToken = (user) => {
+  return jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+    expiresIn: "1h",
+  });
+};
+
 const login = async (req, res) => {
   try {
-    const { username, password } = req.body;
-    const { token, refreshToken } = await authService.loginUser(
-      username,
-      password
-    );
-
-    res.cookie("token", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-    });
-
-    res.cookie("refreshToken", refreshToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-    });
-
-    res.status(200).json({ auth: true, token, refreshToken });
-  } catch (error) {
-    res.status(500).json({
-      message: "There was a problem logging in the user.",
-      error: error.message,
-    });
+    const user = await User.findOne({ email: req.body.email });
+    if (!user || !(await comparePassword(req.body.password, user.password))) {
+      return res.status(401).json({ message: "Credenciais inválidas" });
+    }
+    const token = generateToken(user);
+    res.status(200).json({ token });
+  } catch (err) {
+    res.status(400).json({ message: err.message });
   }
 };
 
 const register = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
-    await authService.registerUser(username, email, password);
-    res.status(201).json({ message: "User registered successfully" });
-  } catch (error) {
-    res.status(500).json({
-      message: "There was a problem registering the user.",
-      error: error.message,
-    });
+    const hashedPassword = await hashPassword(req.body.password);
+    const user = new User({ ...req.body, password: hashedPassword });
+    await user.save();
+    const token = generateToken(user);
+    res.status(201).json({ token });
+  } catch (err) {
+    res.status(400).json({ message: err.message });
   }
 };
 
@@ -131,6 +124,10 @@ const resetPassword = async (req, res) => {
   }
 };
 
+const getProfile = async (req, res) => {
+  res.status(200).json(req.user);
+};
+
 module.exports = {
   login,
   register,
@@ -139,4 +136,5 @@ module.exports = {
   logout,
   forgotPassword,
   resetPassword,
+  getProfile,
 };

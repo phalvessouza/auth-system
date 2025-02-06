@@ -6,26 +6,24 @@ const cookieParser = require("cookie-parser");
 const rateLimit = require("express-rate-limit");
 const routes = require("./routes");
 const sequelize = require("./config/database");
-const User = require("./models/user");
-const winston = require("winston");
+const logger = require("./utils/logger");
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Configuração do logger
-const logger = winston.createLogger({
-  level: "info",
-  format: winston.format.json(),
-  transports: [
-    new winston.transports.Console(),
-    new winston.transports.File({ filename: "error.log", level: "error" }),
-    new winston.transports.File({ filename: "combined.log" }),
-  ],
+// Middleware de logging
+app.use((req, res, next) => {
+  logger.info(`${req.method} ${req.url}`);
+  next();
 });
 
-// Middlewares
+// Middleware para tratamento de erro
+const errorHandler = require("./middlewares/errorHandler");
+app.use(errorHandler);
+
+// Middlewares de segurança
 const corsOptions = {
   origin: "http://localhost:3000", // Substitua pelo seu domínio
   optionsSuccessStatus: 200,
@@ -35,11 +33,6 @@ app.use(cors(corsOptions));
 app.use(helmet());
 app.use(express.json());
 app.use(cookieParser());
-
-app.use((req, res, next) => {
-  logger.info(`${req.method} ${req.url}`);
-  next();
-});
 
 // Middleware para limitar a taxa de requisições
 const limiter = rateLimit({

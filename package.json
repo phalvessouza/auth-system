@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "argon2": "^0.41.1",
-    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",

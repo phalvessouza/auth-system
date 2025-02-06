@@ -10,18 +10,38 @@ Este projeto é um sistema de login simples desenvolvido em JavaScript utilizand
 
 ## Como Executar
 
-1. Clone o repositório.
-2. Instale as dependências com `npm install`.
-3. Configure o banco de dados no arquivo `.env`.
-4. Execute a aplicação com `npm start`.
+- Clone o repositório.
+
+git clone https://github.com/phalvessouza/auth-system.git
+
+abra o diretorio do projeto `cd AUTH-SYSTEM`
+
+- Instale as dependências com `npm install`
+
+- Configure o banco de dados no arquivo `.env`
+
+DB_NAME=seu_banco_de_dados
+DB_USER=seu_usuario
+DB_PASSWORD=sua_senha
+DB_HOST=localhost
+DB_PORT=5432
+JWT_SECRET=sua_chave_secreta
+EMAIL=seu_email
+EMAIL_PASSWORD=sua_senha_de_email
+
+- Execute a aplicação com `npm start`.
 
 ## Funcionalidades
 
 - Registro de usuários
-- Login de usuários
-- Autenticação básica
+- Login de usuários 
 - Recuperação de senha
 
 
 Contribuição
 Sinta-se à vontade para contribuir com melhorias e correções.
+Faça um fork do projeto
+Crie uma branch para sua feature (git checkout -b feature/fooBar)
+Commit suas mudanças (git commit -am 'Add some fooBar')
+Push para a branch (git push origin feature/fooBar)
+Crie um novo Pull Request
