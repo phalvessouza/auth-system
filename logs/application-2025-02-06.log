@@ -1,0 +1,319 @@
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T22:40:44.967Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T22:40:45.095Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T22:40:57.820Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T22:41:04.194Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2025-02-06T22:41:08.307Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2025-02-06T22:41:18.990Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2025-02-06T22:41:28.835Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T22:41:46.934Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:05:05.674Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:05:05.858Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2025-02-06T23:05:12.800Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:07:15.373Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:07:15.457Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2025-02-06T23:07:18.174Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2025-02-06T23:07:25.688Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:08:40.985Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:08:41.064Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2025-02-06T23:08:46.366Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2025-02-06T23:08:58.116Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:10:28.215Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:10:28.399Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2025-02-06T23:10:32.953Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2025-02-06T23:10:37.502Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2025-02-06T23:10:42.822Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:10:53.323Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:15:21.241Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:15:21.321Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:15:36.238Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:16:20.702Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:16:25.343Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:16:26.795Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:16:28.209Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2025-02-06T23:17:54.068Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2025-02-06T23:18:07.322Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:18:21.530Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:18:30.135Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:18:39.820Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:19:46.906Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:19:47.099Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:19:54.108Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:19:59.657Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:20:03.140Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:23:06.629Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:23:06.817Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:23:30.115Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:23:30.315Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:23:50.392Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:23:50.471Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:24:05.163Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:24:13.764Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:24:18.229Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:24:22.061Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:25:33.075Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:25:33.154Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:25:39.885Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:25:39.966Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:25:47.764Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-06T23:26:40.235Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:28:52.643Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:28:52.825Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:29:54.895Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:29:54.976Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:30:30.072Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:30:31.886Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-06T23:30:48.190Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-06T23:31:10.462Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:32:39.280Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:32:39.465Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:33:24.045Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:33:24.124Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:33:44.742Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:33:44.941Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:34:05.420Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:34:06.025Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-06T23:34:22.592Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:34:34.233Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:34:34.312Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-06T23:34:38.795Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:36:37.307Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:36:37.492Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:36:45.307Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:36:45.498Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:37:05.943Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:37:06.132Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:37:34.716Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:37:35.013Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:37:42.965Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-06T23:37:52.980Z"}
+{"level":"info","message":"POST /api/auth/forgot-password","timestamp":"2025-02-06T23:38:51.032Z"}
+{"level":"info","message":"POST /api/auth/reset-password/d459679791dabc39d40611006f9480db6a7fcef4","timestamp":"2025-02-06T23:39:24.649Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:52:19.859Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:52:19.937Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:52:24.816Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:52:26.045Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-06T23:52:29.388Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:53:36.584Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:53:36.773Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:54:19.737Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:54:20.042Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:54:22.612Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:54:22.704Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-06T23:54:30.934Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-06T23:54:33.079Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-06T23:54:35.788Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-06T23:54:39.417Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-06T23:56:11.104Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-06T23:56:11.308Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-06T23:58:59.319Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:00:19.408Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:04:12.228Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:04:15.913Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:04:46.811Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:12:00.745Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:12:02.090Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-07T00:13:09.507Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-07T00:13:09.587Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:13:13.252Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-07T00:13:33.148Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-07T00:13:33.329Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:13:35.459Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:13:47.685Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-07T00:15:47.555Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-07T00:15:47.745Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:16:04.631Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:16:16.437Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:16:23.795Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:16:25.212Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-07T00:17:30.799Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-07T00:17:31.096Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:17:35.090Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:17:35.093Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:17:45.926Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:18:07.119Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:18:07.120Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:18:17.304Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-07T00:22:07.158Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-07T00:22:07.343Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:22:19.239Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:22:19.243Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:22:36.053Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:25:23.025Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:25:23.026Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:25:32.143Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:25:32.144Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:25:37.258Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:25:53.395Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:25:53.400Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:26:05.449Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:27:47.190Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:27:47.192Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:27:51.015Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T00:27:54.224Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:27:54.225Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:28:24.516Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:28:24.517Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:28:39.540Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:28:39.542Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T00:28:46.772Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:28:46.774Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:29:56.363Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:29:56.365Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T00:30:05.965Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:30:05.966Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:30:14.099Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:30:14.101Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T00:30:25.894Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:30:25.895Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:31:14.727Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:31:14.728Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:32:27.536Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:32:27.537Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:33:40.119Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:33:40.121Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T00:33:41.333Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:33:41.335Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:33:53.569Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:33:53.570Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T00:33:55.647Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:33:55.648Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:34:13.627Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:34:42.909Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:36:01.641Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:36:01.643Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T00:36:03.191Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:36:03.193Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:36:04.232Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:36:05.345Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:36:11.956Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:36:11.957Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T00:36:13.717Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:36:13.719Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-07T00:39:09.679Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-07T00:39:09.770Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-07T00:40:04.154Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-07T00:40:04.350Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-07T00:40:06.031Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-07T00:40:06.231Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:41:25.951Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:41:31.895Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:41:37.596Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:41:46.655Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:41:46.657Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T00:41:51.585Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:41:51.587Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-07T00:44:56.934Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-07T00:44:57.130Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-07T00:45:37.177Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-07T00:45:37.473Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:45:48.911Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:45:48.915Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T00:45:54.681Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:45:54.682Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:46:07.958Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:46:07.959Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T00:46:12.126Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:46:12.128Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:47:44.583Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:47:44.584Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T00:47:46.508Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:47:46.509Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:47:49.832Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:47:49.833Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:47:51.205Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:47:58.664Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:47:58.666Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T00:48:02.696Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T00:48:02.698Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-07T00:54:27.907Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-07T00:54:28.091Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:54:30.872Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:54:30.875Z"}
+{"level":"error","message":"ForbiddenError: invalid csrf token\n    at csrf (D:\\projetos\\auth-system\\node_modules\\csurf\\index.js:112:19)\n    at Layer.handle [as handle_request] (D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\index.js:286:9\n    at Function.process_params (D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at D:\\projetos\\auth-system\\node_modules\\express-rate-limit\\dist\\index.cjs:822:7\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async D:\\projetos\\auth-system\\node_modules\\express-rate-limit\\dist\\index.cjs:704:5","timestamp":"2025-02-07T00:54:30.885Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:54:38.402Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:54:38.403Z"}
+{"level":"error","message":"ForbiddenError: invalid csrf token\n    at csrf (D:\\projetos\\auth-system\\node_modules\\csurf\\index.js:112:19)\n    at Layer.handle [as handle_request] (D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\index.js:286:9\n    at Function.process_params (D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at D:\\projetos\\auth-system\\node_modules\\express-rate-limit\\dist\\index.cjs:822:7\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async D:\\projetos\\auth-system\\node_modules\\express-rate-limit\\dist\\index.cjs:704:5","timestamp":"2025-02-07T00:54:38.405Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-07T00:56:29.567Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-07T00:56:29.652Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T00:56:35.470Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T00:56:35.473Z"}
+{"level":"error","message":"ForbiddenError: invalid csrf token\n    at csrf (D:\\projetos\\auth-system\\node_modules\\csurf\\index.js:112:19)\n    at Layer.handle [as handle_request] (D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\index.js:286:9\n    at Function.process_params (D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at D:\\projetos\\auth-system\\node_modules\\express-rate-limit\\dist\\index.cjs:822:7\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async D:\\projetos\\auth-system\\node_modules\\express-rate-limit\\dist\\index.cjs:704:5","timestamp":"2025-02-07T00:56:35.483Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-07T00:59:55.189Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-07T00:59:55.378Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-07T01:01:21.228Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-07T01:01:21.421Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T01:03:54.586Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:03:54.590Z"}
+{"level":"error","message":"ForbiddenError: invalid csrf token\n    at csrf (D:\\projetos\\auth-system\\node_modules\\csurf\\index.js:112:19)\n    at Layer.handle [as handle_request] (D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\index.js:286:9\n    at Function.process_params (D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\projetos\\auth-system\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at D:\\projetos\\auth-system\\node_modules\\express-rate-limit\\dist\\index.cjs:822:7\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async D:\\projetos\\auth-system\\node_modules\\express-rate-limit\\dist\\index.cjs:704:5","timestamp":"2025-02-07T01:03:54.601Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-07T01:07:06.575Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-07T01:07:06.661Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-02-07T01:08:40.089Z"}
+{"level":"info","message":"Database & tables created!","timestamp":"2025-02-07T01:08:40.390Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T01:09:39.619Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:09:39.623Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T01:09:41.653Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T01:09:41.655Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T01:09:55.753Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T01:09:55.754Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T01:11:47.078Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T01:11:47.079Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T01:11:49.015Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:11:49.016Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T01:11:50.880Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:11:52.310Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T01:11:53.530Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T01:11:53.531Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T01:11:55.558Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:11:55.559Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:12:00.208Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T01:12:02.319Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T01:12:02.320Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T01:12:30.121Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:12:30.123Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T01:12:35.680Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T01:12:35.681Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T01:13:13.520Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:13:13.522Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T01:13:19.421Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:13:19.422Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:13:24.199Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T01:13:31.736Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T01:13:31.737Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T01:15:17.355Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:15:17.356Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T01:15:21.489Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T01:15:21.490Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T01:15:42.577Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:15:42.578Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T01:15:44.607Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T01:15:44.608Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T01:15:51.820Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:15:51.821Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T01:15:54.282Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T01:15:54.284Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:15:56.730Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T01:15:58.117Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T01:21:40.369Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:21:40.371Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:21:45.059Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T01:21:48.162Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:21:48.163Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T01:21:49.839Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T01:21:49.840Z"}
+{"level":"info","message":"OPTIONS /api/auth/register","timestamp":"2025-02-07T01:22:03.825Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2025-02-07T01:22:03.826Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T01:24:13.352Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:24:13.354Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T01:24:14.651Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T01:24:14.652Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T01:25:22.490Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:25:22.491Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:25:25.332Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T01:25:26.431Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T01:25:26.432Z"}
+{"level":"info","message":"OPTIONS /api/auth/login","timestamp":"2025-02-07T01:26:05.080Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:26:05.081Z"}
+{"level":"info","message":"OPTIONS /api/auth/logout","timestamp":"2025-02-07T01:26:06.413Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T01:26:06.414Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2025-02-07T01:26:09.296Z"}
+{"level":"info","message":"POST /api/auth/logout","timestamp":"2025-02-07T01:26:10.529Z"}

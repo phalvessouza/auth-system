@@ -12,13 +12,13 @@ const RefreshToken = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "Users", // Nome da tabela de usuários
+        model: "Users",
         key: "id",
       },
     },
   },
   {
-    tableName: "RefreshTokens", // Especifica o nome da tabela
+    tableName: "RefreshTokens",
   }
 );
 

@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const authService = require("../services/authService");
 const { Op } = require("sequelize");
 const User = require("../models/user");
+const RefreshToken = require("../models/refreshToken");
 const { hashPassword, comparePassword } = require("../utils/password");
 
 dotenv.config();
@@ -15,12 +16,39 @@ const generateToken = (user) => {
 
 const login = async (req, res) => {
   try {
-    const user = await User.findOne({ email: req.body.email });
-    if (!user || !(await comparePassword(req.body.password, user.password))) {
-      return res.status(401).json({ message: "Credenciais inválidas" });
+    const { identifier, password } = req.body;
+    const user = await User.findOne({
+      where: {
+        [Op.or]: [{ username: identifier }, { email: identifier }],
+      },
+    });
+
+    if (!user) {
+      return res.status(401).json({ message: "Usuário não encontrado" });
     }
+
+    const isPasswordValid = await comparePassword(user.password, password);
+    if (!isPasswordValid) {
+      return res.status(401).json({ message: "Senha incorreta" });
+    }
+
     const token = generateToken(user);
-    res.status(200).json({ token });
+    const refreshToken = authService.generateRefreshToken(user.id);
+
+    // Salvar o refresh token no banco de dados
+    await RefreshToken.create({ token: refreshToken, userId: user.id });
+
+    // Definir o refresh token no cookie
+    res.cookie("refreshToken", refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+    });
+
+    res.status(200).json({
+      message: "Logado com sucesso",
+      token,
+      refreshToken,
+    });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
@@ -28,11 +56,26 @@ const login = async (req, res) => {
 
 const register = async (req, res) => {
   try {
+    // Verificar se o username já existe
+    const existingUsername = await User.findOne({
+      where: { username: req.body.username },
+    });
+    if (existingUsername) {
+      return res.status(400).json({ message: "Username já está em uso" });
+    }
+
+    // Verificar se o email já existe
+    const existingEmail = await User.findOne({
+      where: { email: req.body.email },
+    });
+    if (existingEmail) {
+      return res.status(400).json({ message: "Email já está em uso" });
+    }
+
     const hashedPassword = await hashPassword(req.body.password);
     const user = new User({ ...req.body, password: hashedPassword });
     await user.save();
-    const token = generateToken(user);
-    res.status(201).json({ token });
+    res.status(201).json({ message: "Usuário criado com sucesso" });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
@@ -80,17 +123,28 @@ const refreshToken = async (req, res) => {
 };
 
 const logout = async (req, res) => {
-  const refreshToken = req.cookies.refreshToken;
+  const { refreshToken } = req.body;
 
-  if (refreshToken) {
-    try {
-      await authService.logoutUser(refreshToken);
-    } catch (error) {
-      return res.status(500).json({
-        message: "There was a problem logging out.",
-        error: error.message,
-      });
+  if (!refreshToken) {
+    return res.status(400).json({ message: "Refresh token is required" });
+  }
+
+  try {
+    const decoded = jwt.verify(refreshToken, process.env.JWT_SECRET);
+    console.log("Decoded userId:", decoded.id); // Adicionar log
+    const result = await RefreshToken.destroy({
+      where: { userId: decoded.id },
+    });
+    console.log("Tokens deleted:", result); // Adicionar log
+  } catch (error) {
+    console.error("Error during logout:", error); // Adicionar log
+    if (error instanceof jwt.JsonWebTokenError) {
+      return res.status(400).json({ message: "Invalid refresh token" });
     }
+    return res.status(500).json({
+      message: "There was a problem logging out.",
+      error: error.message,
+    });
   }
 
   res.clearCookie("token");

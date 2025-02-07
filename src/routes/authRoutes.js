@@ -2,7 +2,7 @@ const express = require("express");
 const { body } = require("express-validator");
 const authController = require("../controllers/authController");
 const validate = require("../middlewares/validate");
-const auth = require("../middlewares/auth");
+const auth = require("../middlewares/verifyToken");
 
 const router = express.Router();
 
@@ -10,7 +10,7 @@ const router = express.Router();
 router.post(
   "/login",
   [
-    body("username").isString().withMessage("Username is required"),
+    body("identifier").isString().withMessage("Username or Email is required"),
     body("password").isString().withMessage("Password is required"),
   ],
   validate,
@@ -33,7 +33,12 @@ router.post(
 );
 
 // Rota para logout
-router.post("/logout", authController.logout);
+router.post(
+  "/logout",
+  [body("refreshToken").isString().withMessage("Refresh token is required")],
+  validate,
+  authController.logout
+);
 
 // Rota para solicitação de redefinição de senha
 router.post(

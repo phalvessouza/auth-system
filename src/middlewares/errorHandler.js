@@ -1,7 +1,7 @@
-const { ValidationError } = require("express-validation");
+const { validationResult } = require("express-validator");
 
 const errorHandler = (err, req, res, next) => {
-  if (err instanceof ValidationError) {
+  if (err instanceof validationResult) {
     return res.status(err.statusCode).json(err);
   }
 

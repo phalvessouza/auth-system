@@ -1,12 +1,12 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const cors = require("cors");
 const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
 const rateLimit = require("express-rate-limit");
 const routes = require("./routes");
 const sequelize = require("./config/database");
 const logger = require("./utils/logger");
+const cors = require("cors");
 
 dotenv.config();
 
@@ -19,14 +19,10 @@ app.use((req, res, next) => {
   next();
 });
 
-// Middleware para tratamento de erro
-const errorHandler = require("./middlewares/errorHandler");
-app.use(errorHandler);
-
-// Middlewares de segurança
+// Configuração do CORS
 const corsOptions = {
-  origin: "http://localhost:3000", // Substitua pelo seu domínio
-  optionsSuccessStatus: 200,
+  origin: "http://127.0.0.1:5500", // Substitua pelo seu domínio
+  credentials: true, // Permitir cookies nas requisições CORS
 };
 
 app.use(cors(corsOptions));
@@ -45,12 +41,6 @@ app.use(limiter);
 
 // Usar as rotas
 app.use("/api", routes);
-
-// Middleware para tratamento de erro
-app.use((err, req, res, next) => {
-  logger.error(err.stack);
-  res.status(500).json({ message: "Something broke!", error: err.message });
-});
 
 // Sincronizar o modelo com o banco de dados
 sequelize
