@@ -5,7 +5,7 @@ const auth = async (req, res, next) => {
   const token =
     req.header("Authorization")?.replace("Bearer ", "") || req.cookies.token;
   if (!token) {
-    return res.status(403).send("No token provided");
+    return res.status(403).json({ message: "No token provided" });
   }
 
   try {

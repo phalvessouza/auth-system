@@ -2,7 +2,7 @@ const express = require("express");
 const { body } = require("express-validator");
 const authController = require("../controllers/authController");
 const validate = require("../middlewares/validate");
-const auth = require("../middlewares/verifyToken");
+const auth = require("../middlewares/auth");
 
 const router = express.Router();
 
@@ -60,5 +60,8 @@ router.post(
   validate,
   authController.resetPassword
 );
+
+// Rota para obter perfil do usuário
+router.get("/profile", auth, authController.getProfile);
 
 module.exports = router;

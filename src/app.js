@@ -7,6 +7,8 @@ const routes = require("./routes");
 const sequelize = require("./config/database");
 const logger = require("./utils/logger");
 const cors = require("cors");
+const csurf = require("csurf");
+const errorHandler = require("./middlewares/errorHandler");
 
 // Carregar variáveis de ambiente
 dotenv.config();
@@ -45,6 +47,16 @@ app.use(express.json());
 // Usar o middleware para receber dados de formulário
 app.use(cookieParser());
 
+// Middleware CSRF
+const csrfProtection = csurf({ cookie: true });
+app.use(csrfProtection);
+
+// Middleware para adicionar o token CSRF às respostas
+app.use((req, res, next) => {
+  res.cookie("XSRF-TOKEN", req.csrfToken());
+  next();
+});
+
 // Middleware para logar as requisições
 app.use((req, res, next) => {
   logger.info(`${req.method} ${req.url}`);
@@ -63,6 +75,9 @@ sequelize
   .catch((err) => {
     logger.error("Unable to create tables:", err);
   });
+
+// Middleware para tratar erros
+app.use(errorHandler);
 
 // Iniciar o servidor
 app.listen(PORT, () => {
