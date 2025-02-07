@@ -8,27 +8,20 @@ const sequelize = require("./config/database");
 const logger = require("./utils/logger");
 const cors = require("cors");
 
+// Carregar variáveis de ambiente
 dotenv.config();
 
+// Criar a aplicação Express
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// Middleware de logging
-app.use((req, res, next) => {
-  logger.info(`${req.method} ${req.url}`);
-  next();
-});
+// Porta do servidor
+const PORT = process.env.PORT || 3000;
 
 // Configuração do CORS
 const corsOptions = {
   origin: "http://127.0.0.1:5500", // Substitua pelo seu domínio
   credentials: true, // Permitir cookies nas requisições CORS
 };
-
-app.use(cors(corsOptions));
-app.use(helmet());
-app.use(express.json());
-app.use(cookieParser());
 
 // Middleware para limitar a taxa de requisições
 const limiter = rateLimit({
@@ -37,7 +30,26 @@ const limiter = rateLimit({
   message: "Too many requests from this IP, please try again later.",
 });
 
+// limitar as requisições para todas as rotas
 app.use(limiter);
+
+// Usar os middlewares de segurança
+app.use(cors(corsOptions));
+
+// Usar os middlewares de segurança
+app.use(helmet());
+
+// Usar o middleware para receber JSON
+app.use(express.json());
+
+// Usar o middleware para receber dados de formulário
+app.use(cookieParser());
+
+// Middleware para logar as requisições
+app.use((req, res, next) => {
+  logger.info(`${req.method} ${req.url}`);
+  next();
+});
 
 // Usar as rotas
 app.use("/api", routes);
