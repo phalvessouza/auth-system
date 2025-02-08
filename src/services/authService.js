@@ -5,6 +5,7 @@ const crypto = require("crypto");
 const nodemailer = require("nodemailer");
 const User = require("../models/user");
 const RefreshToken = require("../models/refreshToken");
+const { Op } = require("sequelize");
 
 dotenv.config();
 
@@ -30,7 +31,7 @@ const verifyPassword = async (hashedPassword, password) => {
 
 const sendResetPasswordEmail = async (user, token, req) => {
   const transporter = nodemailer.createTransport({
-    service: "Gmail",
+    service: "Outlook365",
     auth: {
       user: process.env.EMAIL,
       pass: process.env.EMAIL_PASSWORD,
