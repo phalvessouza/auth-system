@@ -7,8 +7,9 @@ const routes = require("./routes");
 const sequelize = require("./config/database");
 const logger = require("./utils/logger");
 const cors = require("cors");
-const csurf = require("csurf");
 const errorHandler = require("./middlewares/errorHandler");
+const swaggerJsDoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 
 // Carregar variáveis de ambiente
 dotenv.config();
@@ -47,21 +48,32 @@ app.use(express.json());
 // Usar o middleware para receber dados de formulário
 app.use(cookieParser());
 
-// Middleware CSRF
-const csrfProtection = csurf({ cookie: true });
-app.use(csrfProtection);
-
-// Middleware para adicionar o token CSRF às respostas
-app.use((req, res, next) => {
-  res.cookie("XSRF-TOKEN", req.csrfToken());
-  next();
-});
-
 // Middleware para logar as requisições
 app.use((req, res, next) => {
   logger.info(`${req.method} ${req.url}`);
   next();
 });
+
+// Configuração do Swagger
+const swaggerOptions = {
+  swaggerDefinition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Login System API",
+      version: "1.0.0",
+      description: "API para o sistema de login",
+    },
+    servers: [
+      {
+        url: "http://localhost:3000/api",
+      },
+    ],
+  },
+  apis: ["./src/routes/*.js", "./src/models/*.js"], // Caminho para os arquivos de rotas e modelos
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Usar as rotas
 app.use("/api", routes);

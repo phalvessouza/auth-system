@@ -6,7 +6,38 @@ const auth = require("../middlewares/auth");
 
 const router = express.Router();
 
-// Rota para login
+/**
+ * @swagger
+ * tags:
+ *   name: Auth
+ *   description: Rotas de autenticação
+ */
+
+/**
+ * @swagger
+ * /auth/login:
+ *   post:
+ *     summary: Login de usuário
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               identifier:
+ *                 type: string
+ *                 description: Username ou Email do usuário
+ *               password:
+ *                 type: string
+ *                 description: Senha do usuário
+ *     responses:
+ *       200:
+ *         description: Logado com sucesso
+ *       401:
+ *         description: Usuário não encontrado ou senha incorreta
+ */
 router.post(
   "/login",
   [
@@ -17,7 +48,34 @@ router.post(
   authController.login
 );
 
-// Rota para registro
+/**
+ * @swagger
+ * /auth/register:
+ *   post:
+ *     summary: Registro de usuário
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               username:
+ *                 type: string
+ *                 description: Nome de usuário
+ *               email:
+ *                 type: string
+ *                 description: Email do usuário
+ *               password:
+ *                 type: string
+ *                 description: Senha do usuário
+ *     responses:
+ *       201:
+ *         description: Usuário criado com sucesso
+ *       400:
+ *         description: Username ou email já está em uso
+ */
 router.post(
   "/register",
   [
@@ -32,7 +90,28 @@ router.post(
   authController.register
 );
 
-// Rota para logout
+/**
+ * @swagger
+ * /auth/logout:
+ *   post:
+ *     summary: Logout de usuário
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               refreshToken:
+ *                 type: string
+ *                 description: Refresh token do usuário
+ *     responses:
+ *       200:
+ *         description: Logout com sucesso
+ *       400:
+ *         description: Refresh token é obrigatório
+ */
 router.post(
   "/logout",
   [body("refreshToken").isString().withMessage("Refresh token is required")],
@@ -40,7 +119,28 @@ router.post(
   authController.logout
 );
 
-// Rota para solicitação de redefinição de senha
+/**
+ * @swagger
+ * /auth/forgot-password:
+ *   post:
+ *     summary: Solicitação de redefinição de senha
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 description: Email do usuário
+ *     responses:
+ *       200:
+ *         description: Email de redefinição de senha enviado
+ *       500:
+ *         description: Erro ao enviar email
+ */
 router.post(
   "/forgot-password",
   [body("email").isEmail().withMessage("Valid email is required")],
@@ -48,7 +148,35 @@ router.post(
   authController.forgotPassword
 );
 
-// Rota para redefinição de senha
+/**
+ * @swagger
+ * /auth/reset-password/{token}:
+ *   post:
+ *     summary: Redefinição de senha
+ *     tags: [Auth]
+ *     parameters:
+ *       - in: path
+ *         name: token
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: Token de redefinição de senha
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               password:
+ *                 type: string
+ *                 description: Nova senha do usuário
+ *     responses:
+ *       200:
+ *         description: Senha redefinida com sucesso
+ *       500:
+ *         description: Erro ao redefinir senha
+ */
 router.post(
   "/reset-password/:token",
   [
@@ -60,8 +188,5 @@ router.post(
   validate,
   authController.resetPassword
 );
-
-// Rota para obter perfil do usuário
-router.get("/profile", auth, authController.getProfile);
 
 module.exports = router;

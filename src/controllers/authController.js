@@ -163,10 +163,6 @@ const resetPassword = async (req, res) => {
   }
 };
 
-const getProfile = async (req, res) => {
-  res.status(200).json(req.user);
-};
-
 module.exports = {
   login,
   register,
@@ -175,5 +171,4 @@ module.exports = {
   logout,
   forgotPassword,
   resetPassword,
-  getProfile,
 };

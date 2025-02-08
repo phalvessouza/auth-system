@@ -1,8 +1,9 @@
 const { validationResult } = require("express-validator");
 
 const errorHandler = (err, req, res, next) => {
-  if (err instanceof validationResult) {
-    return res.status(err.statusCode).json(err);
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
   }
 
   if (err.name === "UnauthorizedError") {
